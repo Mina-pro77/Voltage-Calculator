@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حاسبة قانون أوم | حساب الجهد الكهربائي</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="calculator-card">
+            <header>
+                <div class="icon-badge">⚡</div>
+                <h1>حساب الجهد الكهربائي</h1>
+                <p>تطبيق قانون أوم: <span>V = I × R</span></p>
+            </header>
+
+            <form id="ohmForm">
+                <!-- إدخال المقاومة -->
+                <div class="input-group">
+                    <label for="resistance">قيمة المقاومة (R)</label>
+                    <div class="input-wrapper">
+                        <input type="number" id="resistance" step="any" placeholder="أدخل قيمة المقاومة..." required>
+                        <select id="resUnit" aria-label="وحدة المقاومة">
+                            <option value="1">Ω </option>
+                            <option value="1000">kΩ </option>
+                            <option value="1000000">MΩ </option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- إدخال التيار -->
+                <div class="input-group">
+                    <label for="current">قيمة شدة التيار (I)</label>
+                    <div class="input-wrapper">
+                        <input type="number" id="current" step="any" placeholder="أدخل قيمة التيار..." required>
+                        <select id="currUnit" aria-label="وحدة التيار">
+                            <option value="1">A </option>
+                            <option value="0.001">mA </option>
+                            <option value="0.000001">µA </option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button type="submit" class="btn-primary">قيمة الفولت</button>
+                    <button type="button" id="resetBtn" class="btn-secondary">إزالة</button>
+                </div>
+            </form>
+
+            <!-- صندوق النتائج -->
+            <div id="resultBox" class="result-box hidden">
+                <div class="result-main">
+                    <span class="label">الجهد الكهربائي (Voltage)</span>
+                    <div class="value" id="voltageOutput">0 V</div>
+                </div>
+                <div class="result-sub">
+                    <span>القدرة المستهلكة (Power):</span>
+                    <strong id="powerOutput">0 W</strong>
+                </div>
+            </div>
+
+            <!-- سجل العمليات -->
+            <div class="history-section">
+                <div class="history-header">
+                    <h3>سجل الحسابات الأخيرة</h3>
+                    <button id="clearHistory" class="clear-link">مسح السجل</button>
+                </div>
+                <ul id="historyList" class="history-list">
+                    <li class="empty-msg">لا توجد عمليات حسابية بعد</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
